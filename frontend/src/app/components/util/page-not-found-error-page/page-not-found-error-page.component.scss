@@ -1,0 +1,72 @@
+@use 'src/variables.scss' as *;
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding-top: 50px;
+
+  color: $workflex-blue;
+  font-family: Archivo, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+
+  .image-container {
+    position: relative;
+    width: 234px;
+  }
+
+  .cat {
+    width: 270px;
+    height: 270px;
+    //background: url('^assets/img/cat.png') no-repeat no-repeat;
+    background-size: contain;
+  }
+
+  .visor {
+    position: absolute;
+    width: 85px;
+    height: 44px;
+
+    left: 68px;
+    top: 133px;
+
+    font-size: 4rem;
+    line-height: 44px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    color: white;
+
+    transform: rotate(-6.43deg);
+  }
+
+  .error-header {
+
+    .title {
+      font-size: 2.4rem;
+
+      @media screen and (max-width: 479px) {
+        font-size: 2rem;
+      }
+    }
+
+    .message {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: normal;
+      font-size: 1.8rem;
+      line-height: 33px;
+      padding: 0 30px;
+      max-width: 600px;
+
+      color: darkgray;
+    }
+  }
+}

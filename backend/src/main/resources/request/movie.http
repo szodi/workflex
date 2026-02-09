@@ -1,0 +1,32 @@
+### getMovieList
+GET http://localhost:8080/api/movies/
+Content-Type: application/json
+
+### createMovie
+POST http://localhost:8080/api/movies/
+Content-Type: application/json
+
+{
+  "title": "The Matrix",
+  "genre": "action, sci-fi",
+  "imdbRating": "8.7"
+}
+
+### updateMovie
+PUT http://localhost:8080/api/movies/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Inception",
+  "genre": "action, psychological thriller",
+  "imdbRating": "8.8"
+}
+
+### getMovieDetails
+GET http://localhost:8080/api/movies/1
+Content-Type: application/json
+
+### deleteMovie
+DELETE http://localhost:8080/api/movies/1
+Content-Type: application/json

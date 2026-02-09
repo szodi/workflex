@@ -1,0 +1,71 @@
+@use 'variables.scss' as *;
+@use 'button.scss' as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  width: 100%;
+  height: 100vh;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* old Edge/IE */
+}
+
+.j-common-input {
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  padding: 4px 8px;
+  display: flex;
+  min-width: 100px;
+  max-width: 500px;
+  height: 26.8px;
+  field-sizing: content;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    color: $workflex-dark-blueish-grey;
+    filter: brightness(85%) opacity(60%);
+    cursor: default;
+  }
+
+  &.deleted {
+    text-decoration: line-through;
+  }
+
+  &.invalid {
+    border-color: $workflex-bug-red;
+    color: $workflex-bug-red;
+  }
+
+  &:not(:disabled):not(.invalid):hover {
+    border-color: $workflex-light-blue;
+  }
+
+  &:not(:disabled):not(.invalid):focus {
+    border-color: $workflex-light-blue;
+    box-shadow: 0 0 0 3px $workflex-very-light-blue;
+  }
+}
+

@@ -1,0 +1,42 @@
+### getCustomerList
+GET http://localhost:8080/api/customers/
+Content-Type: application/json
+
+### createCustomer
+POST http://localhost:8080/api/customers/
+Content-Type: application/json
+
+{
+  "email": "sandor.szodoray@gmail.com",
+  "name": "Sandor Szodoray",
+  "city": "Miskolc",
+  "addressLine1": "Szikla u.",
+  "addressLine2": "2/B",
+  "zipCode": "3535"
+}
+
+### updateCustomer
+PUT http://localhost:8080/api/customers/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "email": "szodi@hotmail.com",
+  "name": "Sandor Szodoray",
+  "city": "Miskolc",
+  "addressLine1": "Szikla u.",
+  "addressLine2": "2/B",
+  "zipCode": "3535"
+}
+
+### getCustomerDetails
+GET http://localhost:8080/api/customers/1
+Content-Type: application/json
+
+### deleteCustomer
+DELETE http://localhost:8080/api/customers/1
+Content-Type: application/json
+
+### rentMovie
+PUT http://localhost:8080/api/customers/1/1
+Content-Type: application/json
