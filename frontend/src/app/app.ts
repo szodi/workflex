@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [RouterOutlet, RouterLink],
   styleUrl: './app.scss'
 })
 export class App {
