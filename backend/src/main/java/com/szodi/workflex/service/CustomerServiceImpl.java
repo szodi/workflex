@@ -45,6 +45,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDto getCustomerDetails(Long customerId) {
+        if (customerId == null) {
+            throw new CustomerNotFoundException();
+        }
         Customer customer = customerRepository.findById(customerId).orElseThrow(CustomerNotFoundException::new);
         return customerMapper.convert(customer);
     }
@@ -64,13 +67,16 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setAddressLine2(customerDto.getAddressLine2());
         customer.setZipCode(customerDto.getZipCode());
 
-        customerRepository.save(customer);;
+        customerRepository.save(customer);
         return customerMapper.convert(customer);
     }
 
     @Override
     @Transactional
     public void deleteCustomer(Long customerId) {
+        if (customerId == null) {
+            throw new CustomerNotFoundException();
+        }
         Customer customer = customerRepository.findById(customerId).orElseThrow(CustomerNotFoundException::new);
         customerRepository.delete(customer);
     }
@@ -78,6 +84,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     @Transactional
     public void rentMovie(Long customerId, Long movieId) {
+        if (customerId == null) {
+            throw new CustomerNotFoundException();
+        }
+        if (movieId == null) {
+            throw new MovieNotFoundException();
+        }
         Customer customer = customerRepository.findById(customerId).orElseThrow(CustomerNotFoundException::new);
         Movie movie = movieRepository.findById(movieId).orElseThrow(MovieNotFoundException::new);
         customer.getMovies().add(movie);

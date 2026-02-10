@@ -38,6 +38,9 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieDto getMovieDetails(Long movieId) {
+        if (movieId == null) {
+            throw new MovieNotFoundException();
+        }
         Movie movie = movieRepository.findById(movieId).orElseThrow(MovieNotFoundException::new);
         return movieMapper.convert(movie);
     }
@@ -54,13 +57,16 @@ public class MovieServiceImpl implements MovieService {
         movie.setGenre(movieDto.getGenre());
         movie.setImdbRating(movieDto.getImdbRating());
 
-        movieRepository.save(movie);;
+        movieRepository.save(movie);
         return movieMapper.convert(movie);
     }
 
     @Override
     @Transactional
     public void deleteMovie(Long movieId) {
+        if (movieId == null) {
+            throw new MovieNotFoundException();
+        }
         Movie movie = movieRepository.findById(movieId).orElseThrow(MovieNotFoundException::new);
         movieRepository.delete(movie);
     }
